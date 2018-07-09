@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Castle.MicroKernel.Registration;
+using Castle.Windsor;
+using System;
 
 namespace PackSize
 {
@@ -6,7 +8,12 @@ namespace PackSize
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var container = new WindsorContainer();
+            
+            container.Register(Component.For<IRunInstructions>().ImplementedBy<RunInstructions>());
+            
+            var root = container.Resolve<IRunInstructions>(args[0]);
+            
         }
     }
 }
