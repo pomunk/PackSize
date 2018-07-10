@@ -8,7 +8,6 @@ namespace PackSize
     {
         void Raise(HeadType toolType);
         void Lower(HeadType toolType);
-        void Move();
         HeadStatus GetCreaseHeadStatus();
         HeadStatus GetCutHeadStatus();
     }

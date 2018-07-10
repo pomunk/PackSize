@@ -43,11 +43,6 @@ namespace PackSize
             }
         }
 
-        public void Move()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Raise(HeadType toolType)
         {
             if (toolType == HeadType.Cut)

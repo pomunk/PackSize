@@ -4,12 +4,12 @@ using Newtonsoft.Json;
 
 namespace PackSize
 {
-    public class RunInstructions : IRunInstructions
+    public class PackSizeMachine : IMachine
     {
         private Coordinate _currentCoordinates;
         private List<Instruction> _instructionSet;
 
-        public RunInstructions(string instructionSet)
+        public PackSizeMachine(string instructionSet)
         {
             _instructionSet = JsonConvert.DeserializeObject<List<Instruction>>(instructionSet);
         }
@@ -23,6 +23,11 @@ namespace PackSize
             {
                 
             }
+        }
+
+        public void Move(Coordinate startingCoordinate, HeadType type, TravelDirection direction, int length)
+        {
+
         }
     }
 }

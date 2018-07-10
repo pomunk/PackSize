@@ -58,54 +58,60 @@ namespace UnitTest.PackSize
         [TestMethod]
         public void LongHeadCreaseRaise()
         {
-            var expected = true;
-            var actual = false;
+            SetupLongCutTool();
+            var expected = HeadStatus.Raised;
+            _longCutTool.Raise(HeadType.Crease);
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, _longCutTool.GetCreaseHeadStatus());
         }
 
         [TestMethod]
         public void LongHeadCreaseLower()
         {
-            var expected = true;
-            var actual = false;
+            SetupLongCutTool();
+            var expected = HeadStatus.Lowered;
+            _longCutTool.Lower(HeadType.Crease);
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, _longCutTool.GetCreaseHeadStatus());
         }
         [TestMethod]
         public void CrossHeadCutRaise()
         {
-            var expected = true;
-            var actual = false;
+            SetupCrossCutTool();
+            var expected = HeadStatus.Raised;
+            _crossCutTool.Raise(HeadType.Cut);
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, _crossCutTool.GetCutHeadStatus());
         }
 
         [TestMethod]
         public void CrossHeadCutLower()
         {
-            var expected = true;
-            var actual = false;
+            SetupCrossCutTool();
+            var expected = HeadStatus.Lowered;
+            _crossCutTool.Lower(HeadType.Cut);
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, _crossCutTool.GetCutHeadStatus());
         }
 
         [TestMethod]
         public void LongHeadCutRaise()
         {
-            var expected = true;
-            var actual = false;
+            SetupLongCutTool();
+            var expected = HeadStatus.Raised;
+            _longCutTool.Raise(HeadType.Cut);
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, _longCutTool.GetCutHeadStatus());
         }
 
         [TestMethod]
         public void LongHeadCutLower()
         {
-            var expected = true;
-            var actual = false;
+            SetupLongCutTool();
+            var expected = HeadStatus.Lowered;
+            _longCutTool.Lower(HeadType.Cut);
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, _longCutTool.GetCutHeadStatus());
         }
 
         [TestMethod]
