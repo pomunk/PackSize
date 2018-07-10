@@ -4,9 +4,8 @@ using System.Text;
 
 namespace PackSize
 {
-    public enum InstructionType
+    public interface ILogger
     {
-        Cut,
-        Crease
+        void Log(string msg);
     }
 }

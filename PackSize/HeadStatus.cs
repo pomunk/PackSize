@@ -4,8 +4,9 @@ using System.Text;
 
 namespace PackSize
 {
-    public interface IRunInstructions
+    public enum HeadStatus
     {
-        void ProcessInstructions();
+        Raised,
+        Lowered
     }
 }

@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackSize", "PackSize\PackSize.csproj", "{D4C1B47C-CAB6-4EA4-B6F2-EBBFF49D3E28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.PackSize", "..\UnitTest.PackSize\UnitTest.PackSize.csproj", "{CDD6034E-2329-4B7D-BE84-07C583487CAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.PackSize", "UnitTest.PackSize\UnitTest.PackSize.csproj", "{CDD6034E-2329-4B7D-BE84-07C583487CAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

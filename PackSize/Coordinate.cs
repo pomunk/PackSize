@@ -9,7 +9,7 @@ namespace PackSize
         private int _xCoordinate;
         private int _yCoordinate;
 
-        public int XCoordinate { get => _xCoordinate; set => _xCoordinate = value; }
-        public int YCoordinate { get => _yCoordinate; set => _yCoordinate = value; }
+        public int X { get => _xCoordinate; set => _xCoordinate = value; }
+        public int Y { get => _yCoordinate; set => _yCoordinate = value; }
     }
 }

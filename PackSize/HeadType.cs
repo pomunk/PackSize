@@ -8,13 +8,11 @@ using System.Text;
 namespace PackSize
 {
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum TravelDirection
+    public enum HeadType
     {
-        [EnumMember(Value = "Right")]
-        Right,
-        [EnumMember(Value = "Left")]
-        Left,
-        [EnumMember(Value = "Feed")]
-        Feed
+        [EnumMember(Value = "Cut")]
+        Cut,
+        [EnumMember(Value = "Crease")]
+        Crease
     }
 }
