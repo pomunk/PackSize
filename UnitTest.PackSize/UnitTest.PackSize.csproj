@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PackSize\PackSize.csproj" />
-    <ProjectReference Include="..\PackSize\PackSize\PackSize.csproj" />
   </ItemGroup>
 
 </Project>

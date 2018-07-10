@@ -11,51 +11,55 @@ namespace UnitTest.PackSize
         private string _instructions;
         private RunInstructions runInstructions;
         private Mock runInstructionsMock;
-        private Mock longCutToolMock;
-        private Mock crossCutToolMock;
-        private Mock loggerMock;
+        private LongcutTool _longCutTool;
+        private CrosscutTool _crossCutTool;
 
         [TestInitialize]
         public void Setup()
         {
-            //var container = new WindsorContainer();
-
-            //container.Register(Component.For<IRunInstructions>().ImplementedBy<RunInstructions>());
-
-            //runInstructions = (RunInstructions)container.Resolve<IRunInstructions>(File.ReadAllText("Basic_Instructions.txt"));
-            loggerMock = new Mock<ILogger>();
-            //runInstructionsMock = new Mock<IRunInstructions>(File.ReadAllText("Basic_Instructions.txt"));
-
-            //longCutToolMock = new Mock<LongcutTool>(loggerMock);
-            //crossCutToolMock = new Mock<CrosscutTool>();
+         
 
         }
 
+        private void SetupCrossCutTool()
+        {
+            _crossCutTool = new CrosscutTool();
+            _crossCutTool.Raise(HeadType.Crease);
+            _crossCutTool.Raise(HeadType.Cut);
+        }
+
+        private void SetupLongCutTool()
+        {
+            _longCutTool = new LongcutTool();
+            _longCutTool.Raise(HeadType.Crease);
+            _longCutTool.Raise(HeadType.Cut);
+        }
 
         [TestMethod]
         public void CrossHeadCreaseRaise()
         {
-            CrosscutTool tool = new CrosscutTool((Logger)loggerMock.Object);
-            var expected = true;
-            var actual = tool.Raise(HeadType.Crease);
+            SetupCrossCutTool();
+            var expected = HeadStatus.Raised;
+            _crossCutTool.Raise(HeadType.Crease);
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, _crossCutTool.GetCreaseHeadStatus());
         }
 
         [TestMethod]
         public void CrossHeadCreaseLower()
         {
-            var expected = true;
-            var actual = runInstructionsMock.Move();
+            SetupCrossCutTool();
+            var expected = HeadStatus.Lowered;
+            _crossCutTool.Lower(HeadType.Crease);
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, _crossCutTool.GetCreaseHeadStatus());
         }
 
         [TestMethod]
         public void LongHeadCreaseRaise()
         {
             var expected = true;
-            var actual = runInstructionsMock.Move();
+            var actual = false;
 
             Assert.AreEqual(expected, actual);
         }
@@ -64,7 +68,7 @@ namespace UnitTest.PackSize
         public void LongHeadCreaseLower()
         {
             var expected = true;
-            var actual = runInstructionsMock.Move();
+            var actual = false;
 
             Assert.AreEqual(expected, actual);
         }
@@ -72,7 +76,7 @@ namespace UnitTest.PackSize
         public void CrossHeadCutRaise()
         {
             var expected = true;
-            var actual = runInstructionsMock.Move();
+            var actual = false;
 
             Assert.AreEqual(expected, actual);
         }
@@ -81,7 +85,7 @@ namespace UnitTest.PackSize
         public void CrossHeadCutLower()
         {
             var expected = true;
-            var actual = runInstructionsMock.Move();
+            var actual = false;
 
             Assert.AreEqual(expected, actual);
         }
@@ -90,7 +94,7 @@ namespace UnitTest.PackSize
         public void LongHeadCutRaise()
         {
             var expected = true;
-            var actual = runInstructionsMock.Move();
+            var actual = false;
 
             Assert.AreEqual(expected, actual);
         }
@@ -99,7 +103,7 @@ namespace UnitTest.PackSize
         public void LongHeadCutLower()
         {
             var expected = true;
-            var actual = runInstructionsMock.Move();
+            var actual = false;
 
             Assert.AreEqual(expected, actual);
         }
@@ -108,7 +112,7 @@ namespace UnitTest.PackSize
         public void CutCrossHeadRight()
         {
             var expected = true;
-            var actual = runInstructionsMock.Move();
+            var actual = false;
 
             Assert.AreEqual(expected, actual);
         }
@@ -117,7 +121,7 @@ namespace UnitTest.PackSize
         public void CutCrossHeadLeft()
         {
             var expected = true;
-            var actual = _instructions.Move();
+            var actual = false;
 
             Assert.AreEqual(expected, actual);
         }
@@ -126,7 +130,7 @@ namespace UnitTest.PackSize
         public void CreaseCrossHeadRight()
         {
             var expected = true;
-            var actual = _instructions.Move();
+            var actual = false;
 
             Assert.AreEqual(expected, actual);
         }
@@ -135,7 +139,7 @@ namespace UnitTest.PackSize
         public void CreaseCrossHeadLeft()
         {
             var expected = true;
-            var actual = _instructions.Move();
+            var actual = false;
 
             Assert.AreEqual(expected, actual);
         }
@@ -143,7 +147,7 @@ namespace UnitTest.PackSize
         public void CutLongHead()
         {
             var expected = true;
-            var actual = _instructions.Move();
+            var actual = false;
 
             Assert.AreEqual(expected, actual);
         }
@@ -152,7 +156,7 @@ namespace UnitTest.PackSize
         public void CreaseLongHead()
         {
             var expected = true;
-            var actual = _instructions.Move();
+            var actual = false;
 
             Assert.AreEqual(expected, actual);
         }
@@ -160,7 +164,7 @@ namespace UnitTest.PackSize
         public void FeedLongHead()
         {
             var expected = true;
-            var actual = _instructions.Move();
+            var actual = false;
 
             Assert.AreEqual(expected, actual);
         }

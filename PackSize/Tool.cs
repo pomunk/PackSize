@@ -14,6 +14,7 @@ namespace PackSize
         {
             _cutHead = new ToolHead(HeadType.Cut);
             _creaseHead = new ToolHead(HeadType.Crease);
+            _logger = Logger.Instance;
         }
 
         public Logger Logger { get => _logger; set => _logger = value; }

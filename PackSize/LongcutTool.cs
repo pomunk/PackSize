@@ -9,9 +9,8 @@ namespace PackSize
         private string _id;
         public string Id { get => _id; set => _id = value; }
 
-        public LongcutTool(Logger logger)
+        public LongcutTool()
         {
-            Logger = logger;
         }
 
         public void Raise(HeadType toolType)

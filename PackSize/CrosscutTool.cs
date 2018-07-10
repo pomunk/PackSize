@@ -6,9 +6,8 @@ namespace PackSize
 {
     public class CrosscutTool : Tool
     {
-        public CrosscutTool(Logger logger)
+        public CrosscutTool()
         {
-            Logger = logger;
         }
 
         public void Raise(HeadType toolType)
