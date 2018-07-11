@@ -1,22 +1,222 @@
 ﻿[
 	{
-		"InstructionNumber": 1,
-		"Type": "Cut",
-		"StartingCoordinate": {
-			"X": 0,
-			"Y": 0
+		InstructionNumber: 1,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 0,
+			Y: 0
 		},
-		"TravelDirection": "Right",
-		"Length": 30
+		TravelDirection: 'Right',
+		Length: 20
+	}, 
+	{
+		InstructionNumber: 2,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 20,
+			Y: 10
+		},
+		TravelDirection: 'Left',
+		Length: 5
 	},
 	{
-		"InstructionNumber": 2,
-		"Type": "Cut",
-		"StartingCoordinate": {
-			"X": 30,
-			"Y": 30
+		InstructionNumber: 3,
+		Type: 'Crease',
+		StartingCoordinate: {
+			X: 15,
+			Y: 10
 		},
-		"TravelDirection": "Left",
-		"Length": 30
-	}
+		TravelDirection: 'Left',
+		Length: 10
+	},
+	{
+		InstructionNumber: 4,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 5,
+			Y: 10
+		},
+		TravelDirection: 'Left',
+		Length: 5
+	},
+	{
+		InstructionNumber: 5,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 0,
+			Y: 20
+		},
+		TravelDirection: 'Right',
+		Length: 5
+	},
+	{
+		InstructionNumber: 6,
+		Type: 'Crease',
+		StartingCoordinate: {
+			X: 5,
+			Y: 20
+		},
+		TravelDirection: 'Right',
+		Length: 10
+	},
+	{
+		InstructionNumber: 7,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 15,
+			Y: 20
+		},
+		TravelDirection: 'Right',
+		Length: 5
+	},
+	{
+		InstructionNumber: 8,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 20,
+			Y: 30
+		},
+		TravelDirection: 'Left',
+		Length: 5
+	},
+	{
+		InstructionNumber: 9,
+		Type: 'Crease',
+		StartingCoordinate: {
+			X: 15,
+			Y: 30
+		},
+		TravelDirection: 'Left',
+		Length: 10
+	},
+	{
+		InstructionNumber: 10,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 5,
+			Y: 30
+		},
+		TravelDirection: 'Left',
+		Length: 5
+	},
+	{
+		InstructionNumber: 11,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 0,
+			Y: 40
+		},
+		TravelDirection: 'Right',
+		Length: 5
+	},
+	{
+		InstructionNumber: 12,
+		Type: 'Crease',
+		StartingCoordinate: {
+			X: 5,
+			Y: 40
+		},
+		TravelDirection: 'Right',
+		Length: 10
+	},
+	{
+		InstructionNumber: 13,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 15,
+			Y: 40
+		},
+		TravelDirection: 'Right',
+		Length: 5
+	},
+	{
+		InstructionNumber: 14,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 0,
+			Y: 0
+		},
+		TravelDirection: 'Feed',
+		Length: 40
+	},
+	{
+		InstructionNumber: 15,
+		Type: 'Crease',
+		StartingCoordinate: {
+			X: 5,
+			Y: 0
+		},
+		TravelDirection: 'Feed',
+		Length: 40
+	},
+	{
+		InstructionNumber: 16,
+		Type: 'Crease',
+		StartingCoordinate: {
+			X: 15,
+			Y: 0
+		},
+		TravelDirection: 'Feed',
+		Length: 40
+	},
+	{
+		InstructionNumber: 17,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 20,
+			Y: 0
+		},
+		TravelDirection: 'Feed',
+		Length: 40
+	},
+	{
+		InstructionNumber: 18,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 0,
+			Y: 40
+		},
+		TravelDirection: 'Feed',
+		Length: 2
+	},
+	{
+		InstructionNumber: 19,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 5,
+			Y: 40
+		},
+		TravelDirection: 'Feed',
+		Length: 2
+	},
+	{
+		InstructionNumber: 20,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 15,
+			Y: 40
+		},
+		TravelDirection: 'Feed',
+		Length: 2
+	},
+	{
+		InstructionNumber: 21,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 20,
+			Y: 40
+		},
+		TravelDirection: 'Feed',
+		Length: 2
+	},
+	{
+		InstructionNumber: 22,
+		Type: 'Cut',
+		StartingCoordinate: {
+			X: 20,
+			Y: 42
+		},
+		TravelDirection: 'Left',
+		Length: 20
+	},
 ]

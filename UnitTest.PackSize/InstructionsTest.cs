@@ -9,28 +9,30 @@ namespace UnitTest.PackSize
     public class InstructionsTest
     {
         private string _instructions;
-        private RunInstructions runInstructions;
+        private PackSizeMachine _packSizeMachine;
         private Mock runInstructionsMock;
-        private LongcutTool _longCutTool;
-        private CrosscutTool _crossCutTool;
+        private ITool _longCutTool;
+        private ITool _crossCutTool;
+        private ToolFactory _toolFactory;
 
         [TestInitialize]
         public void Setup()
         {
-         
-
+            _instructions = File.ReadAllText("Basic_Instructions.txt");
+            _toolFactory = new ToolFactory();
+            _packSizeMachine = new PackSizeMachine(_instructions, _toolFactory);
         }
 
         private void SetupCrossCutTool()
         {
-            _crossCutTool = new CrosscutTool();
+            _crossCutTool = _toolFactory.CreateTool(ToolType.Cross_Cut, "0");
             _crossCutTool.Raise(HeadType.Crease);
             _crossCutTool.Raise(HeadType.Cut);
         }
 
         private void SetupLongCutTool()
         {
-            _longCutTool = new LongcutTool();
+            _longCutTool = _toolFactory.CreateTool(ToolType.Long_Cut, "1");
             _longCutTool.Raise(HeadType.Crease);
             _longCutTool.Raise(HeadType.Cut);
         }
@@ -74,6 +76,7 @@ namespace UnitTest.PackSize
 
             Assert.AreEqual(expected, _longCutTool.GetCreaseHeadStatus());
         }
+
         [TestMethod]
         public void CrossHeadCutRaise()
         {
@@ -167,7 +170,7 @@ namespace UnitTest.PackSize
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void FeedLongHead()
+        public void Feed()
         {
             var expected = true;
             var actual = false;
@@ -201,6 +204,12 @@ namespace UnitTest.PackSize
 
         [TestMethod]
         public void FeedFanFold() { }
+
+        [TestMethod]
+        public void RunTheGambit()
+        {
+            _packSizeMachine.ProcessInstructions();
+        }
 
 
 

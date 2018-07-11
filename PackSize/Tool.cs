@@ -9,15 +9,21 @@ namespace PackSize
         private ToolHead _cutHead;
         private ToolHead _creaseHead;
         private Logger _logger;
+        private string _id;
+        private int currentXCoordinate;
+        private int currentYCoordinate;
 
         public Tool()
         {
             _cutHead = new ToolHead(HeadType.Cut);
             _creaseHead = new ToolHead(HeadType.Crease);
-            _logger = Logger.Instance;
+            Logger = Logger.Instance;
         }
 
         public Logger Logger { get => _logger; set => _logger = value; }
+        public string Id { get => _id; set => _id = value; }
+        public int CurrentXCoordinate { get => currentXCoordinate; set => currentXCoordinate = value; }
+        public int CurrentYCoordinate { get => currentYCoordinate; set => currentYCoordinate = value; }
 
         public HeadStatus GetCreaseHeadStatus()
         {
@@ -33,12 +39,10 @@ namespace PackSize
         {
             if (toolType == HeadType.Crease)
             {
-                _cutHead.Raise();
                 _creaseHead.Lower();
             }
             else
             {
-                _creaseHead.Raise();
                 _cutHead.Lower();
             }
         }
@@ -54,5 +58,8 @@ namespace PackSize
                 _creaseHead.Raise();
             }
         }
+
+        public abstract void Raise();
+        public abstract void Move(int coordinate);
     }
 }

@@ -18,4 +18,10 @@
     <ProjectReference Include="..\PackSize\PackSize.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Basic_Instructions.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

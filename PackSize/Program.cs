@@ -11,12 +11,10 @@ namespace PackSize
         {
             var container = new WindsorContainer();
             
-            container.Register(Component.For<IPackSizeMachine>().ImplementedBy<RunInstructions>());
-            //var root = container.Resolve<IRunInstructions>(args[0], logger );
-            string text = File.ReadAllText("Basic_Instructions.txt");
-            var root = container.Resolve<IPackSizeMachine>(new { instructionSet = text });
+            container.Register(Component.For<IMachine>().ImplementedBy<PackSizeMachine>());
+            ToolFactory factory = new ToolFactory();
+            var root = container.Resolve<IMachine>(new { instructionSet = args[0], factory = factory });
             root.ProcessInstructions();
-
         }
     }
 }
