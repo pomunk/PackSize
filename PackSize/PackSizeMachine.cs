@@ -119,6 +119,7 @@ namespace PackSize
 
         public void Feed(int length)
         {
+            CurrentYCoordinates += length;
             Logger.Instance.Log("");
             Logger.Instance.Log(string.Format("Feed fanfold {0},", length));
         }

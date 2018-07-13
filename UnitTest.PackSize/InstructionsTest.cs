@@ -120,8 +120,12 @@ namespace UnitTest.PackSize
         [TestMethod]
         public void CutCrossHeadRight()
         {
-            var expected = true;
-            var actual = false;
+            SetupCrossCutTool();
+            _crossCutTool.Move(0);
+            _packSizeMachine.MoveCross(new Coordinate() { X = 0, Y = 0 }, _crossCutTool , HeadType.Cut, TravelDirection.Right, 5);
+            
+            var expected = 5;
+            var actual = _crossCutTool.CurrentXCoordinate;
 
             Assert.AreEqual(expected, actual);
         }
@@ -129,81 +133,26 @@ namespace UnitTest.PackSize
         [TestMethod]
         public void CutCrossHeadLeft()
         {
-            var expected = true;
-            var actual = false;
+            SetupCrossCutTool();
+            _packSizeMachine.MoveCross(new Coordinate() { X = 15, Y = 0 }, _crossCutTool, HeadType.Cut, TravelDirection.Left, 5);
+
+            var expected = 10;
+            var actual = _crossCutTool.CurrentXCoordinate;
 
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod]
-        public void CreaseCrossHeadRight()
-        {
-            var expected = true;
-            var actual = false;
-
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void CreaseCrossHeadLeft()
-        {
-            var expected = true;
-            var actual = false;
-
-            Assert.AreEqual(expected, actual);
-        }
+  
         [TestMethod]
         public void CutLongHead()
         {
-            var expected = true;
-            var actual = false;
+            SetupLongCutTool();
+            _packSizeMachine.Feed(10);
+            var expected = 10;
+            var actual = _packSizeMachine.CurrentYCoordinates;
 
             Assert.AreEqual(expected, actual);
         }
-
-        [TestMethod]
-        public void CreaseLongHead()
-        {
-            var expected = true;
-            var actual = false;
-
-            Assert.AreEqual(expected, actual);
-        }
-        [TestMethod]
-        public void Feed()
-        {
-            var expected = true;
-            var actual = false;
-
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void RaiseLongHeadCut() { }
-
-        [TestMethod]
-        public void LowerLongHeadCut() { }
-
-        [TestMethod]
-        public void RaiseCrossHeadCut() { }
-
-        [TestMethod]
-        public void LowerCrossHeadCut() { }
-
-        [TestMethod]
-        public void RaiseLongHeadCrease() { }
-
-        [TestMethod]
-        public void LowerLongHeadCrease() { }
-
-        [TestMethod]
-        public void RaiseCrossHeadCrease() { }
-
-        [TestMethod]
-        public void LowerCrossHeadCrease() { }
-
-        [TestMethod]
-        public void FeedFanFold() { }
 
         [TestMethod]
         public void RunTheGambit()

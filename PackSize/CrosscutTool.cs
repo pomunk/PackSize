@@ -33,6 +33,7 @@ namespace PackSize
 
         public override void Move(int xCoordinate)
         {
+            CurrentXCoordinate = xCoordinate;
             Logger.Log(string.Format("Move cross-head to {0},", xCoordinate));
         }
     }
